@@ -46,8 +46,7 @@ function Home() {
                                 Deck Drop Zone
                             </h2>
                             <div className="flex-grow flex items-center justify-center">
-                                <DeckDropZone />
-                            </div>
+drop                            </div>
                         </div>
                     </section>
                 </div>

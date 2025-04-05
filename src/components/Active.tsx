@@ -32,7 +32,7 @@ interface DraggableGlareCardProps {
 const DraggableGlareCard: React.FC<DraggableGlareCardProps> = ({ id, index, moveCard, children }) => {
     const [{ isDragging }, drag] = useDrag<DragItem, void, { isDragging: boolean }>({
         type: CARD_TYPE,
-        item: { id, index, type: CARD_TYPE },
+        item: { id, index, type: CARD_TYPE, content: children as string },
         collect: (monitor: DragSourceMonitor) => ({
             isDragging: monitor.isDragging(),
         }),
