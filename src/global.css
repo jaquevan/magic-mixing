@@ -50,8 +50,8 @@
 
 /* custom theme styles */
 :root {
-  --primary-color: #b1b1b1;
-  --secondary-color: black;
+  --primary-color: black;
+  --secondary-color: white;
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
