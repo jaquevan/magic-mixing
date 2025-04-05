@@ -50,7 +50,7 @@
 
 /* custom theme styles */
 :root {
-  --primary-color: white;
+  --primary-color: #b1b1b1;
   --secondary-color: black;
   --radius: 0.625rem;
   --background: oklch(1 0 0);
