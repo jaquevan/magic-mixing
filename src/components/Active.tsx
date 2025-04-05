@@ -5,10 +5,10 @@ import { useDrag, useDrop, DropTargetMonitor, DragSourceMonitor } from 'react-dn
 import { GlareCard } from '../components/ui/glare-card.tsx';
 
 // Import all images
-import drums from "../assets/images/drums.png";
-import vocals from "../assets/images/drums.png";
-import bass from "../assets/images/drums.png";
-import lead from "../assets/images/drums.png";
+import drums from "../assets/images/drums.svg";
+import vocals from "../assets/images/vocals.svg";
+import bass from "../assets/images/bass.svg";
+import lead from "../assets/images/lead.svg";
 
 // Define the card item type
 const CARD_TYPE = 'card';
@@ -63,17 +63,20 @@ const DraggableGlareCard: React.FC<DraggableGlareCardProps> = ({ id, index, imag
             className={`${isDragging ? 'opacity-70' : 'opacity-100'}`}
             style={{ transition: 'opacity 0.2s', minWidth: '120px' }}
         >
-            <GlareCard className="cursor-move h-24 text-center px-4 py-2 shadow-md flex flex-col items-center justify-between">
+            <GlareCard className="flex flex-col items-center justify-center relative">
                 <img
-                    src={imageUrl}
+                    className="h-full w-full absolute inset-0 object-cover"
+                    src={imageUrl} // ✅ use the prop here
                     alt={children as string}
-                    className="w-12 h-12 object-contain mb-1 rounded"
                 />
-                <div>{children}</div>
+                <div className="relative z-10 text-white font-semibold text-center drop-shadow-md p-2">
+                    {children}
+                </div>
             </GlareCard>
         </div>
     );
 };
+
 
 const Active: React.FC = () => {
     const [cards, setCards] = useState<Card[]>([
@@ -94,7 +97,7 @@ const Active: React.FC = () => {
 
     return (
         <DndProvider backend={HTML5Backend}>
-            <div className="w-full h-full bg-blue-600 rounded-lg p-4 flex flex-col justify-center">
+            <div className="w-full h-full bg-blue-200 rounded-lg p-4 flex flex-col justify-center">
                 <div className="flex flex-row gap-4 overflow-x-auto pb-2 px-1 scrollbar-thin scrollbar-thumb-blue-300 scrollbar-track-transparent">
                     {cards.map((card, index) => (
                         <DraggableGlareCard
